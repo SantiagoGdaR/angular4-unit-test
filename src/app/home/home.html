@@ -1,0 +1,39 @@
+<h2>Testing a form</h2>
+<alert *ngIf="showSuccessMessage" type="success">
+    <strong>Well done!</strong> You successfully created an Employee
+</alert>
+<form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" 
+        required minlength="4" maxlength="24" #name="ngModel"
+        [(ngModel)]="model.name" name="name">
+        <div *ngIf="name.errors && (name.dirty || name.touched)"
+        class="alert alert-danger">
+            <div [hidden]="!name.errors.required">
+            Name is required
+            </div>
+            <div [hidden]="!name.errors.minlength">
+            Name must be at least 4 characters long.
+            </div>
+            <div [hidden]="!name.errors.maxlength">
+            Name cannot be more than 24 characters long.
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="role">Rol</label>
+        <select class="form-control" id="role" 
+        required #role="ngModel"
+        [(ngModel)]="model.role" name="role">
+            <option *ngFor="let role of roles" [ngValue]="role">{{role.name}}</option>
+        </select>
+        <div *ngIf="role.errors && role.touched" class="alert alert-danger">
+        <div [hidden]="!role.errors.required">Power is required</div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success"
+        [disabled]="!employeeForm.form.valid">
+        Submit
+    </button>
+</form>
