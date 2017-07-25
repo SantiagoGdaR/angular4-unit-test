@@ -7,7 +7,7 @@ import { HomeComponent } from '../app/home/home.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AlertModule } from 'ngx-bootstrap/alert';
 
-describe('Home Component', function() {  
+describe('Home Component', () => {  
     let comp: HomeComponent;
     let fixture: ComponentFixture<HomeComponent>;
     let de:  DebugElement;

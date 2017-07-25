@@ -1,3 +1,4 @@
+import { routes } from './routes/routes';
 import { HomeComponent } from './home/home.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { Route, RouterModule, Routes } from '@angular/router';
@@ -12,10 +13,6 @@ import { AppComponent } from './app.component';
 
 import { AppStateService } from './app-status/app-state.service';
 
-const routes: Routes = [
-  { path: '', pathMatch: 'full', component: HomeComponent },
-  { path: 'employee/:role', component: EmployeeComponent }
-];
 
 @NgModule({
   declarations: [
