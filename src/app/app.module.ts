@@ -1,35 +1,36 @@
-import { routes } from './routes/routes';
-import { HomeComponent } from './home/home.component';
-import { EmployeeComponent } from './employee/employee.component';
-import { Route, RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { AlertModule } from 'ngx-bootstrap/alert';
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { QuoteTextComponent } from './components/quote-text/quote-text.component';
 
-import { AppStateService } from './app-status/app-state.service';
-
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full'}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
+    QuoteTextComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes),
-    AlertModule.forRoot(),
-    BsDropdownModule.forRoot()
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [
-    AppStateService   
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

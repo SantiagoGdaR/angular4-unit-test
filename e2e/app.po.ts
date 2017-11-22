@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-export class Angular4UnitTestPage {
+export class AngularKarmaJasminePage {
   navigateTo() {
     return browser.get('/');
   }

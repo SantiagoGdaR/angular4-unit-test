@@ -1,10 +1,10 @@
-import { Angular4UnitTestPage } from './app.po';
+import { AngularKarmaJasminePage } from './app.po';
 
-describe('angular4-unit-test App', () => {
-  let page: Angular4UnitTestPage;
+describe('angular-karma-jasmine App', () => {
+  let page: AngularKarmaJasminePage;
 
   beforeEach(() => {
-    page = new Angular4UnitTestPage();
+    page = new AngularKarmaJasminePage();
   });
 
   it('should display welcome message', () => {
