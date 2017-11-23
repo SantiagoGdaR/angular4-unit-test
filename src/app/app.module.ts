@@ -8,11 +8,15 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { QuoteTextComponent } from './components/quote-text/quote-text.component';
+import { UserComponent } from './components/user/user.component';
+
+import { UserService } from './components/user/user.service';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'users', component: UserComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
@@ -22,7 +26,8 @@ const routes: Routes = [
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    QuoteTextComponent
+    QuoteTextComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
